@@ -1,0 +1,6 @@
+# PSP ISO文件排序工具依赖
+# 基础依赖（通常随Python安装）
+# tkinter - GUI界面库（Python标准库）
+
+# 可选依赖（用于更好的Windows文件时间控制）
+pywin32; sys_platform == "win32"

@@ -96,7 +96,7 @@ python psp_iso_sorter.py
 
 - **版本**: 1.0.0
 - **作者**: GitHub Copilot
-- **许可**: MIT License
+- **许可**: AGPLv3
 - **支持平台**: Windows
 
 ## 更新日志

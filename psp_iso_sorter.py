@@ -51,8 +51,8 @@ class DragDropListbox(tk.Listbox):
                 self.selection_set(drop_index)
                 
                 # 通知父窗口更新数据
-                if hasattr(self.master, 'on_list_reorder'):
-                    self.master.on_list_reorder(self.drag_start_index, drop_index)
+                if hasattr(self, 'on_list_reorder'):
+                    self.on_list_reorder(self.drag_start_index, drop_index)
                     
         self.drag_start_index = None
 
@@ -112,6 +112,9 @@ class PSPISOSorter:
         # 创建支持拖拽的列表框
         self.file_listbox = DragDropListbox(list_frame, height=15)
         self.file_listbox.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        
+        # 设置拖拽回调函数
+        self.file_listbox.on_list_reorder = self.on_list_reorder
         
         # 滚动条
         scrollbar = ttk.Scrollbar(list_frame, orient=tk.VERTICAL, command=self.file_listbox.yview)
@@ -246,8 +249,8 @@ class PSPISOSorter:
             
             # 按当前列表顺序，从最新时间开始递减修改
             for i, (file_path, _) in enumerate(self.iso_files):
-                # 每个文件间隔1秒
-                new_time = base_time - i
+                # 每个文件间隔30分钟 (30 * 60 = 1800秒)
+                new_time = base_time - (i * 1800)
                 
                 try:
                     self.set_file_time(file_path, new_time)

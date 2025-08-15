@@ -2,6 +2,8 @@
 
 **本项目1.0.0版本完全由AI构建，安装脚本未经测试，不过py文件可用**
 
+**[Release](https://github.com/SenkjM/PSP-ISOs-sorter/releases)里有windows下打包好的程序，理论上可以直接使用**
+
 一个带有GUI界面的PSP ISO文件排序工具，可以：
 - 选择文件夹并自动扫描ISO文件
 - 按文件创建时间排序显示（最新的在上面）
